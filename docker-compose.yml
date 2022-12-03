@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  jupyter:
+    container_name: jupyter
+    image: continuumio/anaconda3
+    ports:
+      - 8888:8888
+    volumes:
+      - ./csv:/csv
+      - ./notebooks:/opt/notebooks
+    working_dir: /opt/notebooks
+    entrypoint: jupyter notebook --port=8888 --allow-root --ip='*' --no-browser
